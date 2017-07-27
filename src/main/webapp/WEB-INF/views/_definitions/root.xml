@@ -1,0 +1,23 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="open_template" template="/WEB-INF/views/open_template.jsp">
+		<put-attribute name="title" value="NOTES" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="loginForm" value="/WEB-INF/views/account/loginForm.jsp" />
+		<put-attribute name="side" value="" />
+		<put-attribute name="content" value="" />
+	</definition>
+
+	<definition name="home" extends="open_template">
+		<put-attribute name="content" value="/WEB-INF/views/home/home.jsp" />
+		
+		<put-attribute name="header" value="/WEB-INF/views/home/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/home/side.jsp" />
+	</definition>
+
+
+</tiles-definitions>

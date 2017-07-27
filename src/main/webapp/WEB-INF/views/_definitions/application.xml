@@ -1,0 +1,58 @@
+	<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="admin/home" extends="open_template">
+		<put-attribute name="header" value="/WEB-INF/views/admin/headerAdmin.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/admin/sideAdmin.jsp" />
+	</definition>
+
+	<!-- Star -->
+	<definition name="admin/starlist" extends="open_template">
+		<put-attribute name="content" value="/WEB-INF/views/application/star_forms/list.jsp" />
+		
+		<put-attribute name="header" value="/WEB-INF/views/admin/headerAdmin.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/admin/sideAdmin.jsp" />
+	</definition>
+
+	<definition name="admin/star_edit" extends="open_template">
+		<put-attribute name="content" value="/WEB-INF/views/application/star_forms/edit.jsp" />
+		
+		<put-attribute name="header" value="/WEB-INF/views/admin/headerAdmin.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/admin/sideAdmin.jsp" />
+	</definition>
+
+	<definition name="admin/star_create" extends="open_template">
+		<put-attribute name="content" value="/WEB-INF/views/application/star_forms/create.jsp" />
+		
+		<put-attribute name="header" value="/WEB-INF/views/admin/headerAdmin.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/admin/sideAdmin.jsp" />
+	</definition>
+	
+	
+	<!-- Discoverers -->
+	<definition name="admin/star_discoverer_list" extends="open_template">
+		<put-attribute name="content" value="/WEB-INF/views/application/star_discoverer_forms/list.jsp" />
+		
+		<put-attribute name="header" value="/WEB-INF/views/admin/headerAdmin.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/admin/sideAdmin.jsp" />
+	
+	</definition>
+		<definition name="admin/star_discoverer_edit" extends="open_template">
+		<put-attribute name="content" value="/WEB-INF/views/application/star_discoverer_forms/edit.jsp" />
+		
+		<put-attribute name="header" value="/WEB-INF/views/admin/headerAdmin.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/admin/sideAdmin.jsp" />
+	</definition>
+
+	<definition name="admin/star_discoverer_create" extends="open_template">
+		<put-attribute name="content" value="/WEB-INF/views/application/star_discoverer_forms/create.jsp" />
+		
+		<put-attribute name="header" value="/WEB-INF/views/admin/headerAdmin.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/admin/sideAdmin.jsp" />
+	</definition>
+	
+
+</tiles-definitions>
