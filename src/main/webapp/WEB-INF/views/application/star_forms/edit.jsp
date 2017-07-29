@@ -38,6 +38,32 @@ function addCombo() {
 }
 </script>
 
+<script type="text/javascript">
+	function doAjaxPostAddNewDiscoverer() {
+		// get the form values
+
+		var name = $('#txtCombo').val();
+
+		$.ajax({
+			type : "POST",
+			url : "/ListOfStars/admin/addDiscovererDynamically",
+			data : "name=" + name ,
+			success : function(response) {
+				
+				// TODO:ax (sorting, unique)
+				addCombo();
+				
+				// we have the response  
+				$('#txtCombo').val('');
+
+			},
+			error : function(e) {
+				alert('Error: ' + e);
+			}
+		});
+	}
+</script>
+
 <c:url value="/admin/star_update" var="formAction"/>
 <form:form method="POST" modelAttribute="notes" action="${formAction}" cssClass="form-horizontal top50" role="form" id="notesForm">
 	<fieldset>
@@ -91,7 +117,7 @@ function addCombo() {
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Add new discoverer name to combo..." id="txtCombo">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" onclick="addCombo()">Add</button>
+						<button class="btn btn-default" type="button" onclick="doAjaxPostAddNewDiscoverer()">Add</button>
 					</span>
 				</div>
 			

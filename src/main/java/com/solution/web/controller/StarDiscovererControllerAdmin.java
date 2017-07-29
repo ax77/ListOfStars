@@ -6,11 +6,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.solution.domain.model.StarDiscoverer;
@@ -36,8 +38,7 @@ public class StarDiscovererControllerAdmin {
 			page = 0;
 		}
 
-		PagedListHolder<StarDiscoverer> resultList = (PagedListHolder<StarDiscoverer>) session
-				.getAttribute("AdminController_discovererList");
+		PagedListHolder<StarDiscoverer> resultList = (PagedListHolder<StarDiscoverer>) session.getAttribute("AdminController_discovererList");
 		if (resultList == null) {
 			resultList = new PagedListHolder<StarDiscoverer>(service.getAllDiscoverers());
 			session.setAttribute("AdminController_discovererList", resultList);
@@ -50,6 +51,19 @@ public class StarDiscovererControllerAdmin {
 		}
 		resultList.setPage(page);
 		return new ModelAndView("admin/star_discoverer_list", "resultList", resultList);
+	}
+
+	// To add new article
+	@RequestMapping(value = "/admin/addDiscovererDynamically", method = RequestMethod.POST)
+	public @ResponseBody String addDiscovererDynamically(@ModelAttribute(value = "article") StarDiscoverer sd, BindingResult result) {
+		String returnText;
+		if (!result.hasErrors()) {
+			service.addDiscoverer(sd);
+			returnText = "OK";
+		} else {
+			returnText = "ER";
+		}
+		return returnText;
 	}
 
 	@RequestMapping(value = "/admin/star_discoverer_create", method = RequestMethod.GET)

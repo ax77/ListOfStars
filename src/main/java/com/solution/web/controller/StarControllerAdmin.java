@@ -112,15 +112,6 @@ public class StarControllerAdmin {
 		ModelAndView modelAndView;
 		try {
 
-			// NOTE_DYN:ax:
-			StarDiscoverer maybeIsANewDiscovererFromClient = discovererService.getDiscovererByName(notes.getDiscoverer());
-			if (maybeIsANewDiscovererFromClient == null) {
-				StarDiscoverer sd = new StarDiscoverer();
-				sd.setName(notes.getDiscoverer());
-				discovererService.addDiscoverer(sd);
-			}
-			//
-
 			starService.updateStar(notes);
 			modelAndView = new ModelAndView("admin/starlist");
 			String infoMessage = "Star '" + notes.getName() + "' saved successfully.";
