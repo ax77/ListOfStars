@@ -17,6 +17,10 @@
 		class="btn btn-default bottom20">New discoverer</a>
 </c:if>
 
+<a href='<s:url value="/admin/star_discoverer_create" />' class="btn btn-primary">New</a>
+<br>
+<br>
+
 <table class="table table-bordered table-striped table-responsive">
 	<thead>
 		<tr>
@@ -172,7 +176,7 @@
 </c:if>
 <%-- END Pagination --%>
 
-<a href='<s:url value="/admin/star_discoverer_create" />' class="btn btn-default">New discoverer</a>
+
 
 
 

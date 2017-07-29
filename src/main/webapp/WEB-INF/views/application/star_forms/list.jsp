@@ -17,6 +17,9 @@
 		class="btn btn-default bottom20">New notes</a>
 </c:if>
 
+<a href='<s:url value="/admin/star_create" />' class="btn btn-primary">New</a>
+<br><br>
+
 <table class="table table-bordered table-striped table-responsive">
 	<thead>
 		<tr>
@@ -187,7 +190,7 @@
 </c:if>
 <%-- END Pagination --%>
 
-<a href='<s:url value="/admin/star_create" />' class="btn btn-default">New star</a>
+
 
 
 
