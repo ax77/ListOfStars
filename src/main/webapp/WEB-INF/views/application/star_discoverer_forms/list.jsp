@@ -22,6 +22,7 @@
 		<tr>
 			<th>#</th>
 			<th>Name</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -36,22 +37,20 @@
 				<td><a href='<s:url value="/admin/star_discoverer_edit/${notes.name}" />'>
 						<c:out value="${notes.name}" />
 				</a></td>
+	
 				
-
 				<!-- Buttons -->
-				<td><nobr>
+				<td class="col-md-1"><nobr>
 						
-				<a class="btn btn-primary"
+				<a class="btn btn-primary btn-xs"
 					href="/ListOfStars/admin/star_discoverer_edit/${notes.name}"> <span
-					class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-					Edit
+					class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				</a>
 						
-				<a class="btn btn-primary"
+				<a class="btn btn-danger btn-xs"
 					onclick="return confirm('Are you sure you want to delete this discoverer?');"
 					href="/ListOfStars/admin/star_discoverer_delete/${notes.name}"> 
 					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-					Delete
 				</a>
 
 				</nobr></td>
