@@ -67,9 +67,9 @@ function addCombo() {
 
 		<!-- Star class -->
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Class</label>
+			<label for="starClass" class="col-sm-2 control-label">Class</label>
 			<div class="col-xs-5 selectContainer" >
-				<form:select path="starClass" cssClass="combostyle">
+				<form:select path="starClass" class="form-control">
 					<form:option value="${notes.starClass}" label="${notes.starClass}" />
 					<form:options items="${colorList}" />
 				</form:select>
@@ -80,7 +80,7 @@ function addCombo() {
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Discoverer</label>
 			<div class="col-xs-5 selectContainer">
-				<form:select path="discoverer" cssClass="combostyle" id="discovererCombo">
+				<form:select path="discoverer" class="form-control" id="discovererCombo">
 					<form:option value="${notes.discoverer}" label="${notes.discoverer}" />
 					<form:options items="${discoverers}" />
 				</form:select>
