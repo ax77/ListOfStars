@@ -12,12 +12,6 @@
 </div>
 
 
-<c:if test="${resultList.pageSize > 10}">
-	<a href='<s:url value="/admin/star_create" />'
-		class="btn btn-default bottom20">New notes</a>
-</c:if>
-
-
 <a href='<s:url value="/admin/star_create" />' class="btn btn-primary">New</a>
 <br><br>
 

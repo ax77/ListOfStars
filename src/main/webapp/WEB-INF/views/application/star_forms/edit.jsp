@@ -111,12 +111,10 @@ function addCombo() {
 					<form:options items="${discoverers}" />
 				</form:select>
 				
-			<!-- NOTE_DYN:ax: dynamically add new discoverer to combo, when we update this form, we check, exists or not discoverer, and create it or not. -->	
-				<br>
 				<br>
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Add new discoverer name to combo..." id="txtCombo">
-					<span class="input-group-btn">
+					<input type="text" class="form-control" placeholder="Add new discoverer..." id="txtCombo">
+					<span class="input-group-btn" aria-hidden="true" >
 						<button class="btn btn-default" type="button" onclick="doAjaxPostAddNewDiscoverer()">Add</button>
 					</span>
 				</div>

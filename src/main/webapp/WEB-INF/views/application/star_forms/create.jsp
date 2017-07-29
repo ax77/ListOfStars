@@ -38,6 +38,32 @@ function addCombo() {
 }
 </script>
 
+<script type="text/javascript">
+	function doAjaxPostAddNewDiscoverer() {
+		// get the form values
+
+		var name = $('#txtCombo').val();
+
+		$.ajax({
+			type : "POST",
+			url : "/ListOfStars/admin/addDiscovererDynamically",
+			data : "name=" + name ,
+			success : function(response) {
+				
+				// TODO:ax (sorting, unique)
+				addCombo();
+				
+				// we have the response  
+				$('#txtCombo').val('');
+
+			},
+			error : function(e) {
+				alert('Error: ' + e);
+			}
+		});
+	}
+</script>
+
 <c:url value="/admin/star_update" var="formAction" />
 <form:form method="POST" modelAttribute="notes" action="${formAction}"
 	cssClass="form-horizontal top50" role="form" id="notesForm">
@@ -66,9 +92,9 @@ function addCombo() {
 		
 		<!-- Star class -->
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Class</label>
+			<label for="starClass" class="col-sm-2 control-label">Class</label>
 			<div class="col-xs-5 selectContainer" >
-				<form:select path="starClass" cssClass="combostyle">
+				<form:select path="starClass" class="form-control">
 					<form:option value="NONE" label="Select class" />
 					<form:options items="${colorList}" />
 				</form:select>
@@ -79,20 +105,19 @@ function addCombo() {
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Discoverer</label>
 			<div class="col-xs-5 selectContainer">
-				<form:select path="discoverer" cssClass="combostyle" id="discovererCombo">
-					<form:option value="NONE" label="Select discoverer" />
+				<form:select path="discoverer" class="form-control" id="discovererCombo">
+					<form:option value="" label="Select discoverer" />
 					<form:options items="${discoverers}" />
 				</form:select>
 				
-				<!-- NOTE_DYN:ax: dynamically add new discoverer to combo, when we update this form, we check, exists or not discoverer, and create it or not. -->	
-				<br>
 				<br>
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Add new discoverer name to combo..." id="txtCombo">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" onclick="addCombo()">Add</button>
+					<input type="text" class="form-control" placeholder="Add new discoverer..." id="txtCombo">
+					<span class="input-group-btn" aria-hidden="true" >
+						<button class="btn btn-default" type="button" onclick="doAjaxPostAddNewDiscoverer()">Add</button>
 					</span>
 				</div>
+			
 			</div>
 		</div>
 
