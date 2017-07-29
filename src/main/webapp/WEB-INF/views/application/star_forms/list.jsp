@@ -24,11 +24,13 @@
 			<th>Name</th>
 			
 			<!-- Galactic coordinate system -->
-			<th>Galactic longitude</th>
-			<th>Galactic latitude</th>
+			<th>G. lon.</th>
+			<th>G. lat.</th>
 			
 			<th>Star class</th>
 			<th>Discoverer</th>
+			
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -37,35 +39,35 @@
 			<tr>
 				
 				<!-- Row counts -->
-				<td><c:out value="${resultList.pageSize * resultList.page + status.count}" /></td>
+				<td class="col-md-1"><c:out value="${resultList.pageSize * resultList.page + status.count}" /></td>
 				
 				<!-- Link for edit -->
-				<td><a href='<s:url value="/admin/star_edit/${notes.name}" />'>
+				<td class="col-md-2">
+						<a href='<s:url value="/admin/star_edit/${notes.name}" />'>
 						<c:out value="${notes.name}" />
 				</a></td>
 				
-				<td><c:out value="${notes.galacticLongitude}" /></td>
-				<td><c:out value="${notes.galacticLatitude}" /></td>
-				<td><c:out value="${notes.starClass}" /></td>
-				<td><c:out value="${notes.discoverer}" /></td>
+				<td class="col-md-1"><c:out value="${notes.galacticLongitude}" /></td>
+				<td class="col-md-1"><c:out value="${notes.galacticLatitude}" /></td>
+				<td class="col-md-2"><c:out value="${notes.starClass}" /></td>
+				<td class="col-md-2"><c:out value="${notes.discoverer}" /></td>
 				
 
 				<!-- Buttons -->
-				<td><nobr>
+				<td class="col-md-1"><nobr>
 						
-				<a class="btn btn-primary"
+				<a class="btn btn-primary btn-xs"
 					href="/ListOfStars/admin/star_edit/${notes.name}"> <span
-					class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-					Edit
+					class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				</a>
 						
-				<a class="btn btn-primary"
+				<a class="btn btn-danger btn-xs"
 					onclick="return confirm('Are you sure you want to delete this star?');"
 					href="/ListOfStars/admin/star_delete/${notes.name}"> 
 					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-					Delete
 				</a>
-
+				
+	
 				</nobr></td>
 				
 			</tr>
