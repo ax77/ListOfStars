@@ -25,9 +25,7 @@ public class StarServiceImpl implements StarService {
 
 		Star starToCheck = mapping.getStarByName(star.getName());
 		if (GeneralService.domainObjectsAreSame(star, starToCheck)) {
-			throw new CustomServiceException("",
-					"There is already a Star with name '" + star.getName()
-							+ "'. Star name should be unique.");
+			throw new CustomServiceException("", "There is already a Star with name '" + star.getName() + "'. Star name should be unique.");
 		}
 
 		if (star.getId() == null) {
@@ -47,5 +45,10 @@ public class StarServiceImpl implements StarService {
 
 	public Star getStarByName(String name) {
 		return mapping.getStarByName(name);
+	}
+
+	@Override
+	public int countOf() {
+		return mapping.countOf();
 	}
 }

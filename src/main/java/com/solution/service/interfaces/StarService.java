@@ -14,4 +14,6 @@ public interface StarService {
 	public Star getStarByName(String name);
 
 	public List<Star> getAllStars();
+	
+	public int countOf();
 }

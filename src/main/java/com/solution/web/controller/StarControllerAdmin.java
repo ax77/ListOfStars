@@ -46,8 +46,8 @@ public class StarControllerAdmin {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/admin/starlist", method = RequestMethod.GET)
-	public ModelAndView listNotes(@RequestParam(required = false) Integer page,
-			@RequestParam(required = false) Integer pageSize, HttpSession session) {
+	public ModelAndView listNotes(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer pageSize,
+			HttpSession session) {
 		if (page == null) {
 			page = 0;
 		}
@@ -64,7 +64,12 @@ public class StarControllerAdmin {
 			resultList.setPageSize(pageSize);
 		}
 		resultList.setPage(page);
-		return new ModelAndView("admin/starlist", "resultList", resultList);
+
+		ModelAndView mv = new ModelAndView("admin/starlist");
+		mv.addObject("resultList", resultList);
+		mv.addObject("count", starService.countOf());
+
+		return mv;
 	}
 
 	@RequestMapping(value = "/admin/star_create", method = RequestMethod.GET)
@@ -108,8 +113,7 @@ public class StarControllerAdmin {
 		try {
 
 			// NOTE_DYN:ax:
-			StarDiscoverer maybeIsANewDiscovererFromClient = discovererService
-					.getDiscovererByName(notes.getDiscoverer());
+			StarDiscoverer maybeIsANewDiscovererFromClient = discovererService.getDiscovererByName(notes.getDiscoverer());
 			if (maybeIsANewDiscovererFromClient == null) {
 				StarDiscoverer sd = new StarDiscoverer();
 				sd.setName(notes.getDiscoverer());

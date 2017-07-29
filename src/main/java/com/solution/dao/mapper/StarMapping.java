@@ -39,8 +39,9 @@ public interface StarMapping {
 			+ "FROM star WHERE name = #{name}")
 	public Star getStarByName(String name);
 
-	@Select("select count(*) from star")
-	public int countAll();
+	// @Select("select count(*) from star")
+	// ax77:move to *.xml -> /ListOfStars/src/main/resources/mybatis/star_mapping.xml
+	int countOf();
 
 	@Select("SELECT ID as id, name as name, "
 			+ "galacticLongitude as galacticLongitude, "
